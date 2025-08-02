@@ -18,7 +18,7 @@ instance.interceptors.request.use(
     if (!accessToken) {
       // accessToken이 없으면 로그인 페이지로 리다이렉트
       toast.error("로그인이 필요합니다.");
-      window.location.href = "/login";
+      window.location.href = "/";
       return Promise.reject(
         new Error("No access token found. Redirecting to login.")
       );
@@ -50,7 +50,7 @@ instance.interceptors.response.use(
       } else if (status === 401) {
         errorMessage = "인증 정보가 유효하지 않습니다. 다시 로그인해주세요.";
         Cookies.remove("accessToken");
-        window.location.href = "/login";
+        window.location.href = "/";
       } else if (status === 403) {
         errorMessage = "접근 권한이 없습니다.";
       } else if (status >= 500) {
