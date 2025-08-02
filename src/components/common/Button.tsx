@@ -6,10 +6,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   backgroundColor?: string;
   borderColor?: string;
   size?: "sm" | "md" | "lg";
+  color?: string;
 }
 
 const sizeStyles = {
-  sm: { padding: "0.25rem 0.75rem", fontSize: "0.875rem" },
+  sm: { padding: "15px 18px", fontSize: "16px" },
   md: { padding: "18px 120px", fontSize: "1rem" },
   lg: { padding: "0.75rem 1.5rem", fontSize: "1.125rem" },
 };
@@ -24,7 +25,7 @@ const StyledButton = styled.button<ButtonProps>`
   line-height: 100%;
   letter-spacing: 0%;
   text-align: center;
-  color: #000000;
+  color: ${({ color }) => color};
   background-color: ${({ backgroundColor = theme.color.main }) =>
     backgroundColor};
   border-color: ${({ borderColor = theme.color.main }) => borderColor};

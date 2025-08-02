@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import {
   Accent,
   Alarm,
+  Chat,
   Complete,
   Goal,
   Home,
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
           {
             path: "/myPage",
             element: <MyPage />,
+          },
+          {
+            path: "/chat",
+            element: <Chat />,
           },
         ],
       },
