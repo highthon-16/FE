@@ -1,10 +1,24 @@
 import styled from "@emotion/styled";
 import { Button, Input } from "@/components";
 import { useState } from "react";
+import { useSignIn } from "@/hooks/useAuth";
 
 export const SignIn = () => {
   const [isEmail, setIsEmail] = useState<string>("");
   const [isPassword, setIsPassword] = useState<string>("");
+  const { mutateAsync: signIn } = useSignIn();
+
+  const handleSignIn = async () => {
+    try {
+      await signIn({
+        email: isEmail,
+        password: isPassword,
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <Wrapper>
       <div style={{ display: "flex", flexDirection: "column", gap: "41px" }}>
@@ -25,7 +39,11 @@ export const SignIn = () => {
         </div>
       </div>
       <Footer>
-        <Button size="md" disabled={!isEmail || !isPassword}>
+        <Button
+          size="md"
+          disabled={!isEmail || !isPassword}
+          onClick={handleSignIn}
+        >
           로그인하기
         </Button>
       </Footer>
