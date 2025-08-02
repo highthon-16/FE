@@ -2,21 +2,29 @@ import styled from "@emotion/styled";
 
 interface ChatBubbleProps {
   text: string;
+  isUser?: boolean;
 }
 
-export const ChatBubble = ({ text }: ChatBubbleProps) => {
+export const ChatBubble = ({ text, isUser }: ChatBubbleProps) => {
   return (
-    <BubbleWrapper>
-      <Bubble>{text}</Bubble>
+    <BubbleWrapper isUser={isUser}>
+      <Bubble>
+        {text.split("\n").map((line, idx) => (
+          <span key={idx}>
+            {line}
+            <br />
+          </span>
+        ))}
+      </Bubble>
       <Tail />
     </BubbleWrapper>
   );
 };
 
-const BubbleWrapper = styled.div`
+const BubbleWrapper = styled.div<{ isUser?: boolean }>`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: ${({ isUser }) => (isUser ? "flex-end" : "flex-start")};
 `;
 
 const Bubble = styled.div`
@@ -25,9 +33,10 @@ const Bubble = styled.div`
   border-radius: 12px;
   font-family: Pretendard;
   font-size: 16px;
-  font-weight: 500px;
+  font-weight: 500;
   line-height: 22px;
   position: relative;
+  white-space: pre-wrap;
 `;
 
 const Tail = styled.div`
