@@ -5,3 +5,8 @@ export { default as Girl } from "./Girl.svg";
 export { default as Man } from "./Man.svg";
 export { default as Woman } from "./Woman.svg";
 export { default as Check } from "./Check.svg";
+export * from "./chat";
+export * from "./calendar";
+export * from "./my";
+export { default as Alarm } from "./alarm.svg";
+
