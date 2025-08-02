@@ -1,12 +1,14 @@
 import { ThemeProvider } from "@emotion/react";
 import { theme, GlobalStyles } from "./themes";
-import { Header } from "./components";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
+
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Header />
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import { AccentButton } from "../../components";
+import { AccentButton, Button } from "../../components";
 import { Girl, Boy, Woman, Man } from "../../assets";
 
 interface IAccentButtonProps {
@@ -30,17 +30,22 @@ export const Accent = () => {
           00님은 <br /> 어떤 말투가 편하신가요?
         </Question>
       </QuestionContainer>
-      <AccentBtnContainer>
-        {AccentBtnTypes.map((item, index) => (
-          <AccentButton
-            key={index}
-            onClick={() => handleOnClick(index)}
-            isClick={selectedIndex === index}
-            icon={item.icon}
-            text={item.text}
-          />
-        ))}
-      </AccentBtnContainer>
+      <div style={{ display: "flex", flexDirection: "column", gap: "69px" }}>
+        <AccentBtnContainer>
+          {AccentBtnTypes.map((item, index) => (
+            <AccentButton
+              key={index}
+              onClick={() => handleOnClick(index)}
+              isClick={selectedIndex === index}
+              icon={item.icon}
+              text={item.text}
+            />
+          ))}
+        </AccentBtnContainer>
+        <Button size="md" disabled={selectedIndex === null}>
+          선택 완료
+        </Button>
+      </div>
     </Container>
   );
 };

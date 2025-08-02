@@ -17,7 +17,6 @@ const globalStyles = css`
     font-weight: 500;
     font-size: 15px;
     line-height: 100%;
-    letter-spacing: 0%;
     color: ${theme.color.black};
     background-color: ${theme.color.white};
   }

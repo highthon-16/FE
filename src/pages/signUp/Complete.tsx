@@ -1,7 +1,18 @@
 import styled from "@emotion/styled";
 import { CheckMark } from "../../assets";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Complete = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate("/signUp/Goal", { replace: true });
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [navigate]);
   return (
     <Container>
       <AnimatedRipple />

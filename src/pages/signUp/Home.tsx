@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
 import { Logo } from "../../assets";
 import { Button } from "@/components";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+  const navigate = useNavigate();
   return (
     <Wrapper>
       <Header>
@@ -14,8 +16,15 @@ export const Home = () => {
         </Contents>
       </Header>
       <Content>
-        <Button size="md">회원가입</Button>
-        <Button size="md" backgroundColor="#E3E3E3" borderColor="#E3E3E3">
+        <Button size="md" onClick={() => navigate("/signUp")}>
+          회원가입
+        </Button>
+        <Button
+          size="md"
+          backgroundColor="#E3E3E3"
+          borderColor="#E3E3E3"
+          onClick={() => navigate("/signIn")}
+        >
           로그인
         </Button>
       </Content>
