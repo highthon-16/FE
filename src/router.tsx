@@ -1,5 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Accent, Complete, Goal, Home, MyPage, SignIn, SignUp } from "./pages";
+import {
+  Accent,
+  Alarm,
+  Complete,
+  Goal,
+  Home,
+  MyPage,
+  SignIn,
+  SignUp,
+} from "./pages";
 
 export const router = createBrowserRouter([
   {
