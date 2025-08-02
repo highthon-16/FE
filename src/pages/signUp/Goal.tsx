@@ -1,7 +1,11 @@
 import styled from "@emotion/styled";
 import { Button, Input } from "@/components";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Goal = () => {
+  const navigate = useNavigate();
+  const [isGoal, setIsGoal] = useState<string>("");
   return (
     <Wrapper>
       <Header>
@@ -13,8 +17,18 @@ export const Goal = () => {
         </div>
       </Header>
       <div style={{ display: "flex", flexDirection: "column", gap: "167px" }}>
-        <Input placeholder="ex) 매일 놀러나가기" />
-        <Button size="md">입력 완료</Button>
+        <Input
+          placeholder="ex) 매일 놀러나가기"
+          onChange={(e) => setIsGoal(e.target.value)}
+          value={isGoal}
+        />
+        <Button
+          size="md"
+          onClick={() => navigate("/signUp/Accent")}
+          disabled={!isGoal}
+        >
+          입력 완료
+        </Button>
       </div>
     </Wrapper>
   );

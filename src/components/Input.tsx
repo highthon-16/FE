@@ -12,11 +12,16 @@ const InputContainer = styled.div`
 `;
 
 const StyledLabel = styled.label`
+  font-family: Pretendard;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
   margin-bottom: 0.5rem;
 `;
 
 const StyledInput = styled.input`
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0;
   border: none;
   outline: none;
   color: #000000;
@@ -24,14 +29,13 @@ const StyledInput = styled.input`
   font-weight: 500;
   font-size: 19px;
   line-height: 100%;
-  letter-spacing: 0%;
+
   &::placeholder {
     color: #aeaeae;
     font-family: "Pretendard";
     font-weight: 500;
     font-size: 19px;
     line-height: 100%;
-    letter-spacing: 0%;
   }
 `;
 

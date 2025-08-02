@@ -34,6 +34,14 @@ const StyledButton = styled.button<ButtonProps>`
   &:hover {
     opacity: 0.9;
   }
+
+  &:disabled {
+    background-color: #dcdcdc;
+    border-color: #dcdcdc;
+    color: #9e9e9e;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 `;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
