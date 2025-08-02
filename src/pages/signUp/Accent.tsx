@@ -47,6 +47,7 @@ export const Accent = () => {
 
 const AccentBtnContainer = styled.div`
   margin-top: 95px;
+  width: 100%;
 `;
 
 const Question = styled.div`
@@ -70,11 +71,11 @@ const QuestionContainer = styled.div`
   align-items: flex-start;
   gap: 16px;
   margin-bottom: 59px;
-  margin-left: 40px;
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 30px;
 `;

@@ -1,3 +1,4 @@
+export { default as CheckMark } from "./checkMark.svg";
 export { default as Logo } from "./Logo.svg";
 export { default as Boy } from "./Boy.svg";
 export { default as Girl } from "./Girl.svg";
