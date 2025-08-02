@@ -13,7 +13,6 @@ export const Header = () => {
 const Container = styled.div`
   width: 100%;
   height: 55px;
-  position: fixed;
   margin-top: 40px;
   display: flex;
   justify-content: space-between;

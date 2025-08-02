@@ -1,10 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Alarm, Accent, Complete, Goal, Home, SignIn, SignUp } from "./pages";
+import { Accent, Complete, Goal, Home, MyPage, SignIn, SignUp } from "./pages";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/my",
+    element: <MyPage />,
   },
   {
     path: "/signIn",

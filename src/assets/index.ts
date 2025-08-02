@@ -9,4 +9,5 @@ export * from "./chat";
 export * from "./calendar";
 export * from "./my";
 export { default as Alarm } from "./alarm.svg";
+export { default as Goal } from "./goal.svg";
 export { default as LeftArrow } from "./LeftArrow.svg";
