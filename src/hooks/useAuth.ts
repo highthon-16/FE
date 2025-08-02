@@ -17,7 +17,7 @@ export const useSignUp = () => {
     onSuccess: () => {
       toast.success("회원가입 성공");
       console.log("회원가입 성공");
-      navigate("/signUp/Complete");
+      navigate("/signUp/Goal");
     },
     onError: (error) => {
       toast.error("회원가입 실패");

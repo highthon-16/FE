@@ -8,7 +8,7 @@ export const Complete = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/signUp/Goal", { replace: true });
+      navigate("/signIn", { replace: true });
     }, 2000);
 
     return () => clearTimeout(timer);
