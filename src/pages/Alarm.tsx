@@ -1,8 +1,10 @@
 import { LeftArrow } from "@/assets";
 import styled from "@emotion/styled";
 import { AlarmBox } from "@/components";
+import { useNavigate } from "react-router-dom";
 
 export const Alarm = () => {
+  const navigate = useNavigate();
   const alarmList = [
     {
       title: "알림",
@@ -22,7 +24,12 @@ export const Alarm = () => {
   return (
     <Wrapper>
       <Header>
-        <img src={LeftArrow} alt="left arrow" style={{ cursor: "pointer" }} />
+        <img
+          src={LeftArrow}
+          alt="left arrow"
+          style={{ cursor: "pointer" }}
+          onClick={() => navigate(-1)}
+        />
         알림
       </Header>
       <AlarmList>

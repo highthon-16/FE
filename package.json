@@ -12,7 +12,9 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "date-fns": "^4.1.0",
     "react": "^19.1.0",
+    "react-day-picker": "^9.8.1",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.7.1",
     "vite-plugin-svgr": "^4.3.0"
