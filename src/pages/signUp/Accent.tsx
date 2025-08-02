@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { AccentButton } from "../../components";
-import { GirlIcon, BoyIcon, WomanIcon, ManIcon } from "../../assets";
+import { Girl, Boy, Woman, Man } from "../../assets";
 
 interface IAccentButtonProps {
   text: string;
@@ -12,10 +12,10 @@ export const Accent = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const AccentBtnTypes: IAccentButtonProps[] = [
-    { icon: GirlIcon, text: "10대 소녀 말투" },
-    { icon: BoyIcon, text: "10대 소년 말투" },
-    { icon: WomanIcon, text: "성인 여성 말투" },
-    { icon: ManIcon, text: "성인 남성 말투" },
+    { icon: Girl, text: "10대 소녀 말투" },
+    { icon: Boy, text: "10대 소년 말투" },
+    { icon: Woman, text: "성인 여성 말투" },
+    { icon: Man, text: "성인 남성 말투" },
   ];
 
   const handleOnClick = (index: number) => {

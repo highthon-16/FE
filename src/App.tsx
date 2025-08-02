@@ -1,7 +1,14 @@
-import { Goal } from "./pages/Goal";
+import { Goal } from "./pages/signUp/Goal";
+import { ThemeProvider } from "@emotion/react";
+import { theme, GlobalStyles } from "./themes";
 
 function App() {
-  return <Goal />;
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Goal />
+    </ThemeProvider>
+  );
 }
 
 export default App;

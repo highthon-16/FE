@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Logo } from "../assets";
+import { Logo } from "../../assets";
 import { Button } from "@/components";
 
 export const Home = () => {
