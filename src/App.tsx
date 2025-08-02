@@ -1,11 +1,7 @@
-import { Accent } from "./pages";
+import { Goal } from "./pages/Goal";
 
 function App() {
-  return (
-    <>
-      <Accent />
-    </>
-  );
+  return <Goal />;
 }
 
 export default App;

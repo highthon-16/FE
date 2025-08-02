@@ -1,1 +1,2 @@
-export * from "./signUp";
+export * from "./Button";
+export * from "./Input";
