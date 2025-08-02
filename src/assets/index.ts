@@ -7,3 +7,4 @@ export { default as Woman } from "./Woman.svg";
 export * from "./chat";
 export * from "./calendar";
 export * from "./my";
+export { default as Alarm } from "./alarm.svg";
