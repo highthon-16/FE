@@ -5,19 +5,17 @@ import {
   Complete,
   Goal,
   Home,
+  Main,
   MyPage,
   SignIn,
   SignUp,
 } from "./pages";
+import { Header, BottomNav } from "./components";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-  },
-  {
-    path: "/my",
-    element: <MyPage />,
   },
   {
     path: "/signIn",
@@ -42,5 +40,23 @@ export const router = createBrowserRouter([
   {
     path: "/alarm",
     element: <Alarm />,
+  },
+  {
+    element: <Header />,
+    children: [
+      {
+        element: <BottomNav />,
+        children: [
+          {
+            path: "/main",
+            element: <Main />,
+          },
+          {
+            path: "/myPage",
+            element: <MyPage />,
+          },
+        ],
+      },
+    ],
   },
 ]);

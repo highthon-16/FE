@@ -1,38 +1,33 @@
 import styled from "@emotion/styled";
-import { BottomNav, Header } from "../components";
 import { theme } from "@/themes";
 import { Goal, Boy } from "../assets";
 
 export const MyPage = () => {
   return (
-    <>
-      <Header />
-      <Container>
-        <Top>
-          <ProfilImg>
-            <img src="" alt="" />
-          </ProfilImg>
-          <NameField>양현서</NameField>
-          <EmailField>d2329@e-mirim.hs.kr</EmailField>
-        </Top>
-        <Bottom>
-          <ContentWrapper>
-            <img src={Goal} />
-            <Title>목표 정하기</Title>
-            <NowGoal>현재 목표</NowGoal>
-            <NowGaolDetail>밖에 자주 나가기</NowGaolDetail>
-          </ContentWrapper>
-          <ContentWrapper>
-            <img id="boy" src={Boy} />
-            <Title>목표 정하기</Title>
-            <NowGoal>현재 말투</NowGoal>
-            <NowGaolDetailAccent>10대 소년</NowGaolDetailAccent>
-          </ContentWrapper>
-        </Bottom>
-        <Logout>로그아웃</Logout>
-      </Container>
-      <BottomNav />
-    </>
+    <Container>
+      <Top>
+        <ProfilImg>
+          <img src="" alt="" />
+        </ProfilImg>
+        <NameField>양현서</NameField>
+        <EmailField>d2329@e-mirim.hs.kr</EmailField>
+      </Top>
+      <Bottom>
+        <ContentWrapper>
+          <img src={Goal} />
+          <Title>목표 정하기</Title>
+          <NowGoal>현재 목표</NowGoal>
+          <NowGaolDetail>밖에 자주 나가기</NowGaolDetail>
+        </ContentWrapper>
+        <ContentWrapper>
+          <img id="boy" src={Boy} />
+          <Title>목표 정하기</Title>
+          <NowGoal>현재 말투</NowGoal>
+          <NowGaolDetailAccent>10대 소년</NowGaolDetailAccent>
+        </ContentWrapper>
+      </Bottom>
+      <Logout>로그아웃</Logout>
+    </Container>
   );
 };
 
@@ -128,5 +123,4 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 39px;
 `;

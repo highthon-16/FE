@@ -1,9 +1,17 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
-import { Chat, Calendar, My } from "../../assets";
+import { useState, useEffect } from "react";
+import { Chat, Calendar, My } from "@/assets";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 export const BottomNav = () => {
-  const [activeTab, setActiveTab] = useState<string>("달력");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [activeTab, setActiveTab] = useState<string>(() => {
+    if (location.pathname === "/main") return "달력";
+    if (location.pathname === "/myPage") return "My";
+    return "채팅";
+  });
 
   const navItems = [
     { id: "채팅", icon: Chat, label: "채팅" },
@@ -11,17 +19,40 @@ export const BottomNav = () => {
     { id: "My", icon: My, label: "My" },
   ];
 
+  useEffect(() => {
+    if (location.pathname === "/main") setActiveTab("달력");
+    else if (location.pathname === "/myPage") setActiveTab("My");
+    else setActiveTab("채팅");
+  }, [location.pathname]);
+
+  const handleClick = (id: string) => {
+    setActiveTab(id);
+    if (id === "My") {
+      navigate("/myPage");
+    } else if (id === "달력") {
+      navigate("/main");
+    } else {
+      navigate("/alarm");
+    }
+  };
+
   return (
-    <Container>
-      <Wrapper>
-        {navItems.map((item) => (
-          <ContentContainer key={item.id} onClick={() => setActiveTab(item.id)}>
-            <item.icon isClick={activeTab === item.id} />
-            <NavName isActive={activeTab === item.id}>{item.label}</NavName>
-          </ContentContainer>
-        ))}
-      </Wrapper>
-    </Container>
+    <>
+      <Outlet />
+      <Container>
+        <Wrapper>
+          {navItems.map((item) => (
+            <ContentContainer
+              key={item.id}
+              onClick={() => handleClick(item.id)}
+            >
+              <item.icon isClick={activeTab === item.id} />
+              <NavName isActive={activeTab === item.id}>{item.label}</NavName>
+            </ContentContainer>
+          ))}
+        </Wrapper>
+      </Container>
+    </>
   );
 };
 

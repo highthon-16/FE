@@ -10,4 +10,7 @@ export * from "./calendar";
 export * from "./my";
 export { default as Alarm } from "./alarm.svg";
 export { default as Goal } from "./goal.svg";
+export { default as Plus } from "./Plus.svg";
 export { default as LeftArrow } from "./LeftArrow.svg";
+export { default as Todo } from "./Todo.svg";
+export { default as TodoActive } from "./TodoActive.svg";
