@@ -1,11 +1,22 @@
 import styled from "@emotion/styled";
 import { Button, Input } from "@/components";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useUserGoal } from "@/hooks/useUser";
 
 export const Goal = () => {
-  const navigate = useNavigate();
-  const [isGoal, setIsGoal] = useState<string>("");
+  const [goals, setGoals] = useState<string>("");
+  const { mutateAsync } = useUserGoal();
+
+  const handleSubmit = async () => {
+    if (!goals) return;
+
+    try {
+      await mutateAsync({ goals });
+    } catch (error) {
+      console.error("목표 설정 실패", error);
+    }
+  };
+
   return (
     <Wrapper>
       <Header>
@@ -19,14 +30,10 @@ export const Goal = () => {
       <div style={{ display: "flex", flexDirection: "column", gap: "167px" }}>
         <Input
           placeholder="ex) 매일 놀러나가기"
-          onChange={(e) => setIsGoal(e.target.value)}
-          value={isGoal}
+          onChange={(e) => setGoals(e.target.value)}
+          value={goals}
         />
-        <Button
-          size="md"
-          onClick={() => navigate("/signUp/Accent")}
-          disabled={!isGoal}
-        >
+        <Button size="md" onClick={handleSubmit} disabled={!goals}>
           입력 완료
         </Button>
       </div>
