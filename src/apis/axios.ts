@@ -13,7 +13,12 @@ export const instance = axios.create({
 // 요청 인터셉터
 instance.interceptors.request.use(
   (config) => {
-    const noAuthPaths = ["/auth/signup", "/auth/login"]; // 인증 불필요 경로들
+    const noAuthPaths = [
+      "/auth/signup",
+      "/auth/login",
+      "/user/goal",
+      "/user/ai-style",
+    ]; // 인증 불필요 경로들
 
     // 인증 필요 없는 경로면 토큰 검사 없이 바로 진행
     if (noAuthPaths.some((path) => config.url?.includes(path))) {
