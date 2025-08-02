@@ -4,6 +4,13 @@ import { ko } from "date-fns/locale";
 import styled from "@emotion/styled";
 import { theme } from "@/themes";
 
+interface CalendarProps {
+  selected: Date | undefined;
+  onSelect: (date: Date) => void;
+  currentMonth: number;
+  currentYear: number;
+}
+
 const StyledCalendar = styled.div`
   .rdp {
     background: white;
@@ -63,10 +70,12 @@ const StyledCalendar = styled.div`
 export const Calendar = ({
   selected,
   onSelect,
-}: {
-  selected: Date;
-  onSelect: (date: Date) => void;
-}) => {
+  currentMonth,
+  currentYear,
+}: CalendarProps) => {
+  // currentMonth와 currentYear를 기반으로 Date 객체 생성
+  const displayMonth = new Date(currentYear, currentMonth - 1, 1);
+
   return (
     <StyledCalendar>
       <DayPicker
@@ -76,6 +85,8 @@ export const Calendar = ({
         locale={ko}
         weekStartsOn={1}
         showOutsideDays={false}
+        month={displayMonth} // 표시할 월 지정
+        disableNavigation={true} // 네비게이션 비활성화 (이미 CSS로 숨김)
       />
     </StyledCalendar>
   );

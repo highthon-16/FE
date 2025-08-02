@@ -1,10 +1,17 @@
-import { Calendar, TodoBar } from "@/components";
+import { Calendar, TodoBar, CalendarModal } from "@/components";
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { Plus } from "@/assets";
 
 export const Main = () => {
   const [selected, setSelected] = useState<Date | undefined>(new Date());
+  const [currentMonth, setCurrentMonth] = useState<number>(
+    new Date().getMonth() + 1
+  );
+  const [currentYear, setCurrentYear] = useState<number>(
+    new Date().getFullYear()
+  );
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [todoList, setTodoList] = useState<
     { id: number; title: string; editing: boolean }[]
   >([]);
@@ -21,11 +28,28 @@ export const Main = () => {
     );
   };
 
+  const handleDateSelect = (month: number, year: number) => {
+    setCurrentMonth(month);
+    setCurrentYear(year);
+    // 선택된 월/년의 1일로 설정
+    setSelected(new Date(year, month - 1, 1));
+  };
+
+  const currentYearMonth = `${currentYear}.${String(currentMonth).padStart(
+    2,
+    "0"
+  )}`;
+
   return (
     <Wrapper>
+      <SelectDate onClick={() => setIsModalOpen(true)}>
+        {currentYearMonth}
+      </SelectDate>
       <Calendar
         selected={selected}
-        onSelect={(date) => {
+        currentMonth={currentMonth}
+        currentYear={currentYear}
+        onSelect={(date: Date) => {
           if (date) setSelected(date);
         }}
       />
@@ -58,9 +82,23 @@ export const Main = () => {
           ))}
         </Contents>
       </Todolist>
+
+      <CalendarModal
+        isClick={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={handleDateSelect}
+        initialMonth={currentMonth}
+        initialYear={currentYear}
+      />
     </Wrapper>
   );
 };
+
+const SelectDate = styled.div`
+  margin-right: auto;
+  font-size: 25px;
+  font-weight: 700;
+`;
 
 const Contents = styled.div`
   display: flex;
