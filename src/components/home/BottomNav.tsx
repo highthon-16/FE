@@ -52,4 +52,5 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.05);
+  bottom: 0;
 `;
