@@ -6,13 +6,19 @@ interface ChatInputProps {
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit?: () => void;
 }
 
-export const ChatInput = ({ placeholder, value, onChange }: ChatInputProps) => {
+export const ChatInput = ({
+  placeholder,
+  value,
+  onChange,
+  onSubmit,
+}: ChatInputProps) => {
   return (
     <InputContainer>
       <Input placeholder={placeholder} value={value} onChange={onChange} />
-      <Button size="sm" disabled={!value} color="#ffffff">
+      <Button size="sm" disabled={!value} color="#ffffff" onClick={onSubmit}>
         보내기
       </Button>
     </InputContainer>

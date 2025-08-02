@@ -1,27 +1,54 @@
-import { ChatInput } from "@/components";
+import { ChatBubble, ChatInput } from "@/components";
 import { theme } from "@/themes";
 import styled from "@emotion/styled";
 import { useState } from "react";
 
 export const Chat = () => {
+  const [chatList, setChatList] = useState<string[]>([]);
   const [value, setValue] = useState<string>("");
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
+  };
+  const onSubmit = () => {
+    if (!value) return;
+    setChatList((prev) => [...prev, value]);
+    setValue("");
   };
   return (
     <Wrapper>
       <Title>채팅</Title>
       <Contents>
-        <Exp>
-          일정에 관해서
-          <br />
-          물어보세요!
-        </Exp>
-        <ChatInput placeholder="입력" value={value} onChange={onChange} />
+        {chatList.length === 0 && (
+          <Exp>
+            일정에 관해서
+            <br />
+            물어보세요!
+          </Exp>
+        )}
+        <Chatbox>
+          {chatList.map((chat, index) => (
+            <ChatBubble key={index} text={chat} isUser={false} />
+          ))}
+        </Chatbox>
+        <ChatInput
+          placeholder="입력"
+          value={value}
+          onChange={onChange}
+          onSubmit={onSubmit}
+        />
       </Contents>
     </Wrapper>
   );
 };
+
+const Chatbox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  max-height: 250px;
+  overflow-y: scroll;
+  align-items: flex-end;
+`;
 
 const Exp = styled.div`
   font-family: Pretendard;
