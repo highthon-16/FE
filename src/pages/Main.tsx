@@ -2,6 +2,7 @@ import { Calendar, TodoBar, CalendarModal } from "@/components";
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { Plus } from "@/assets";
+import { useCalendar } from "@/hooks/useCalendar";
 
 export const Main = () => {
   const [selected, setSelected] = useState<Date | undefined>(new Date());
@@ -40,6 +41,19 @@ export const Main = () => {
     "0"
   )}`;
 
+  const { data } = useCalendar();
+
+  const filteredTodos =
+    data?.filter((event) => {
+      if (!selected) return false;
+
+      const eventDate = new Date(event.startTime);
+      return (
+        eventDate.getFullYear() === selected.getFullYear() &&
+        eventDate.getMonth() === selected.getMonth() &&
+        eventDate.getDate() === selected.getDate()
+      );
+    }) || [];
   return (
     <Wrapper>
       <SelectDate onClick={() => setIsModalOpen(true)}>
@@ -70,12 +84,12 @@ export const Main = () => {
         </Title>
 
         <Contents>
-          {todoList.map((todo) => (
+          {filteredTodos.map((todo) => (
             <TodoBar
               key={todo.id}
               title={todo.title}
               complete={false}
-              editing={todo.editing}
+              editing={false}
               onChange={(value) => handleTodoChange(todo.id, value)}
               onFinishEdit={() => handleFinishEdit(todo.id)}
             />
