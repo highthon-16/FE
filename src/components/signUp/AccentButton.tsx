@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { theme } from "@/themes";
 
 interface IAccentButtonType {
   onClick: () => void;
@@ -24,7 +25,8 @@ export const AccentButton = ({
 const AccentBtn = styled.button<{ $isClick: boolean }>`
   width: 100%;
   height: 95px;
-  background-color: ${(props) => (props.$isClick ? "#FF8C08" : "#f5f5f5")};
+  background-color: ${(props) =>
+    props.$isClick ? theme.color.main : theme.color.serve2};
   display: flex;
   align-items: center;
   font-size: 19px;
