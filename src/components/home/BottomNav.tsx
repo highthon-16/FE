@@ -32,7 +32,7 @@ export const BottomNav = () => {
     } else if (id === "달력") {
       navigate("/main");
     } else {
-      navigate("/alarm");
+      navigate("/chat");
     }
   };
 
