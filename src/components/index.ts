@@ -3,3 +3,4 @@ export * from "./home";
 export * from "./common";
 export * from "./alarm";
 export * from "./calendar";
+export * from "./chat";

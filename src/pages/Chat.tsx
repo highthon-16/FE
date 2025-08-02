@@ -1,7 +1,13 @@
+import { ChatInput } from "@/components";
 import { theme } from "@/themes";
 import styled from "@emotion/styled";
+import { useState } from "react";
 
 export const Chat = () => {
+  const [value, setValue] = useState<string>("");
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
   return (
     <Wrapper>
       <Title>채팅</Title>
@@ -11,6 +17,7 @@ export const Chat = () => {
           <br />
           물어보세요!
         </Exp>
+        <ChatInput placeholder="입력" value={value} onChange={onChange} />
       </Contents>
     </Wrapper>
   );
