@@ -22,9 +22,9 @@ export const AccentButton = ({
 };
 
 const AccentBtn = styled.button<{ $isClick: boolean }>`
-  width: 328px;
+  width: 100%;
   height: 95px;
-  background-color: ${(props) => (props.$isClick ? "#FF8C08" : "f5f5f5")};
+  background-color: ${(props) => (props.$isClick ? "#FF8C08" : "#f5f5f5")};
   display: flex;
   align-items: center;
   font-size: 19px;
@@ -32,10 +32,10 @@ const AccentBtn = styled.button<{ $isClick: boolean }>`
   margin-bottom: 19px;
   border-radius: 16px;
   border: none;
-  transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in-out;
 
   img {
     margin-left: 38px;
-    margin-right: 43px;
+    margin-right: 40px;
   }
 `;

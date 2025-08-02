@@ -1,11 +1,5 @@
-import { Accent } from "./pages";
-
 function App() {
-  return (
-    <>
-      <Accent />
-    </>
-  );
+  return <></>;
 }
 
 export default App;
