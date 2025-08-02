@@ -30,4 +30,8 @@ export const router = createBrowserRouter([
     path: "/signUp/Complete",
     element: <Complete />,
   },
+  {
+    path: "/alarm",
+    element: <Alarm />,
+  },
 ]);
