@@ -14,9 +14,7 @@ export const Home = () => {
         </Contents>
       </Header>
       <Content>
-        <Button size="md" backgroundColor="#FF8C08" borderColor="#FF8C08">
-          회원가입
-        </Button>
+        <Button size="md">회원가입</Button>
         <Button size="md" backgroundColor="#E3E3E3" borderColor="#E3E3E3">
           로그인
         </Button>

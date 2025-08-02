@@ -14,9 +14,7 @@ export const Goal = () => {
       </Header>
       <div style={{ display: "flex", flexDirection: "column", gap: "167px" }}>
         <Input placeholder="ex) 매일 놀러나가기" />
-        <Button size="md" backgroundColor="#FF8C08" borderColor="#FF8C08">
-          입력 완료
-        </Button>
+        <Button size="md">입력 완료</Button>
       </div>
     </Wrapper>
   );

@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes, forwardRef } from "react";
 import styled from "@emotion/styled";
+import { theme } from "@/themes";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   backgroundColor?: string;
@@ -24,8 +25,9 @@ const StyledButton = styled.button<ButtonProps>`
   letter-spacing: 0%;
   text-align: center;
   color: #000000;
-  background-color: ${({ backgroundColor = "#FF8C08" }) => backgroundColor};
-  border-color: ${({ borderColor = "#FF8C08" }) => borderColor};
+  background-color: ${({ backgroundColor = theme.color.main }) =>
+    backgroundColor};
+  border-color: ${({ borderColor = theme.color.main }) => borderColor};
 
   ${({ size = "md" }) => sizeStyles[size]};
 
