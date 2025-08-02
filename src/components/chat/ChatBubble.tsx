@@ -8,14 +8,7 @@ interface ChatBubbleProps {
 export const ChatBubble = ({ text, isUser }: ChatBubbleProps) => {
   return (
     <BubbleWrapper isUser={isUser}>
-      <Bubble>
-        {text.split("\n").map((line, idx) => (
-          <span key={idx}>
-            {line}
-            <br />
-          </span>
-        ))}
-      </Bubble>
+      <Bubble>{text}</Bubble>
       <Tail />
     </BubbleWrapper>
   );
@@ -36,7 +29,8 @@ const Bubble = styled.div`
   font-weight: 500;
   line-height: 22px;
   position: relative;
-  white-space: pre-wrap;
+  max-width: 250px;
+  word-wrap: break-word;
 `;
 
 const Tail = styled.div`

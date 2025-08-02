@@ -10,9 +10,33 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const sizeStyles = {
-  sm: { padding: "15px 18px", fontSize: "16px" },
-  md: { padding: "18px 120px", fontSize: "1rem" },
-  lg: { padding: "0.75rem 1.5rem", fontSize: "1.125rem" },
+  sm: {
+    width: "90px",
+    height: "39px",
+
+    fontSize: "16px",
+    "@media (max-width: 768px)": {
+      width: "68px",
+      height: "38px",
+      fontSize: "16px",
+    },
+  },
+  md: {
+    padding: "18px 120px",
+    fontSize: "1rem",
+    "@media (max-width: 768px)": {
+      padding: "14px 60px",
+      fontSize: "0.9rem",
+    },
+  },
+  lg: {
+    padding: "0.75rem 1.5rem",
+    fontSize: "1.125rem",
+    "@media (max-width: 768px)": {
+      padding: "0.6rem 1.2rem",
+      fontSize: "1rem",
+    },
+  },
 };
 
 const StyledButton = styled.button<ButtonProps>`

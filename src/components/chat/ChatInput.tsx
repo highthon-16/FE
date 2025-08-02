@@ -26,6 +26,7 @@ export const ChatInput = ({
 };
 
 const Input = styled.input`
+  width: 100%;
   font-family: Pretendard;
   font-weight: 500;
   font-size: 19px;
@@ -40,6 +41,13 @@ const Input = styled.input`
     font-size: 19px;
     line-height: 100%;
   }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
 `;
 
 const InputContainer = styled.div`
@@ -48,4 +56,9 @@ const InputContainer = styled.div`
   border-radius: 100px;
   display: flex;
   align-items: center;
+  gap: 8px;
+
+  @media (max-width: 768px) {
+    padding: 8px 11px 8px 16px;
+  }
 `;

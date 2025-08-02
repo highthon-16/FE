@@ -27,7 +27,7 @@ export const Chat = () => {
         )}
         <Chatbox>
           {chatList.map((chat, index) => (
-            <ChatBubble key={index} text={chat} isUser={false} />
+            <ChatBubble key={index} text={chat} isUser={true} />
           ))}
         </Chatbox>
         <ChatInput
@@ -47,7 +47,6 @@ const Chatbox = styled.div`
   gap: 17px;
   max-height: 250px;
   overflow-y: scroll;
-  align-items: flex-end;
 `;
 
 const Exp = styled.div`
